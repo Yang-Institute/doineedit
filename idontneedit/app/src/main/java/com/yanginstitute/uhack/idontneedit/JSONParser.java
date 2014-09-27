@@ -27,7 +27,7 @@ public class JSONParser {
     static JSONArray jsonAr = null; //Holds the json object
     static String jayson = "";
 
-    
+
 
     public JSONParser() {
 
@@ -54,8 +54,13 @@ public class JSONParser {
                 InputStream content = entity.getContent();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(content));
 
+                String line;
+                builder.append("[");
+                while ((line = reader.readLine()) != null) {
+                    builder.append(line);
 
-
+                }
+                builder.append("]");
             } else {
                 Log.e("==>", "Check your internet connection");
 

@@ -10,7 +10,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.net.URLEncoder;
 
 public class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
     String searchCriteria = null;
@@ -29,14 +31,19 @@ public class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
         JSONParser jpar = new JSONParser();
         //.d("URL1","https://api.target.com/v2/products/search?searchTerm=patio&key=J5PsS2XGuqCnkdQq0Let6RSfvU7oyPwF");
 
-        JSONArray Jaar = jpar.getJSONArray("https://api.target.com/v2/products/search?searchTerm=" + searchCriteria + "&key=J5PsS2XGuqCnkdQq0Let6RSfvU7oyPwF");
+        JSONArray Jaar = null;
+        try {
+            Jaar = jpar.getJSONArray("https://api.target.com/v2/products/search?searchTerm=" + URLEncoder.encode(searchCriteria, "UTF-8") + "&key=J5PsS2XGuqCnkdQq0Let6RSfvU7oyPwF");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
         try {
-            for (int i = 0; i < Jaar.length(); i++) {
+            //for (int i = 0; i < 1; i++) {
                 JSONObject obj = Jaar.getJSONObject(0);
-                Log.d("JSONArray", obj.toString());
+                Log.d("JSONArray", "Hello Andrew" + obj.toString());
 
-            }
+            //}
         }
         catch (JSONException e){
             e.printStackTrace();
