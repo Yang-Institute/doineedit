@@ -5,7 +5,6 @@ package com.yanginstitute.uhack.idontneedit;
  */
 
 import java.net.URLEncoder;
-import java.util.ArrayList;
 
 
 public class Concater {
@@ -13,7 +12,7 @@ public class Concater {
     private static final String BASE_URL = "https://api.target.com/v2/products/search?searchTerm=";
     private static String searchWord = "";
     private static final String A_KEY = "&key=";
-    private static final String KEY = "J5PsS2XGuqCnkdQq0Let6RSfvU7oyPwF"
+    private static final String KEY = "J5PsS2XGuqCnkdQq0Let6RSfvU7oyPwF";
 
 
     public Concater(String s){
