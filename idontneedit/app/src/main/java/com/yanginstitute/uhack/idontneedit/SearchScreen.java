@@ -1,6 +1,8 @@
 package com.yanginstitute.uhack.idontneedit;
 
 import android.app.Activity;
+import java.util.ArrayList;
+import java.util.HashMap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,14 +11,24 @@ import android.widget.EditText;
 import android.content.Intent;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 /**
- * Created by Lathie on 9/27/14.
+ * Created by Lathie and MrAndrewYang on 9/27/14.
  */
 
 public class SearchScreen extends Activity {
 
     EditText sEditText;
+
+    private static final String ATTRIBUTE  = "Attribute";
+    private static final String NAME = "name";
+    private static final String DESC = "description";
+    private static final String DPCI = "DPCI";
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +43,19 @@ public class SearchScreen extends Activity {
         String URL = c.constructSearchURL();
 
         //sEditText.setText(URL); //Testline
+        JSONParser jpar = new JSONParser();
+        JSONArray Jaar = jpar.getJSONArray(URL);
+
+        try {
+            for (int i = 0; i < Jaar.length(); i++) {
+                JSONObject obj = Jaar.getJSONObject(0);
+                Log.d("JSONArray", obj.toString());
+
+            }
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
 
 
     }
