@@ -22,16 +22,24 @@
         android:layout_marginTop="49dp"
         android:textColor="#ffffffff" />
 
-    <SearchView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/searchView"
-        android:layout_toEndOf="@+id/searchView"
+        android:id="@+id/editText2"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#ffffff" />
+        android:hint="@string/searchfieldprompt" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/button"
+        android:layout_below="@+id/editText2"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

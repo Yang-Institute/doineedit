@@ -5,6 +5,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="DoINeedIt">Do I need it?</string>
-    <string name="searchfieldprompt">Do I REALLY need it?</string>
+    <string name="searchfieldprompt">Enter search here</string>
 
 </resources>
