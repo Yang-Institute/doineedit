@@ -1,4 +1,4 @@
-package com.yanginstitute.uhack.doineedit;
+package com.yanginstitute.uhack.idontneedit;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
