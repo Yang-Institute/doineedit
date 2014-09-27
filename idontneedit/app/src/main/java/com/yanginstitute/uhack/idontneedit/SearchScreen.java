@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.content.Intent;
+import android.util.Log;
+
 
 /**
  * Created by Lathie on 9/27/14.
@@ -24,6 +26,10 @@ public class SearchScreen extends Activity {
         Intent intent = getIntent();
         String str = intent.getStringExtra("searchString");
         sEditText.setText(str);
+
+        Concater c = new Concater(str);
+        String URL = c.constructSearchURL();
+
 
     }
 
