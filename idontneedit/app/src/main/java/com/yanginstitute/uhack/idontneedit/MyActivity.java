@@ -18,6 +18,7 @@ public class MyActivity extends Activity {
     Button tButton;
 
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
@@ -28,7 +29,8 @@ public class MyActivity extends Activity {
         tButton.setOnClickListener(
             new View.OnClickListener() {
                 public void onClick (View view){
-                    Log.v("EditText", tEdit.getText().toString()); //TEST
+
+                    // Log.v("EditText", tEdit.getText().toString()); //TEST
                     Intent intent = new Intent(MyActivity.this, SearchScreen.class);
                     intent.putExtra("searchString", tEdit.getText().toString());
                     startActivity(intent);
