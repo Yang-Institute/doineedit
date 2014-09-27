@@ -11,20 +11,20 @@ import android.widget.EditText;
 public class MyActivity extends Activity {
 
     EditText tEdit;
-    Button tButton;
+    android.widget.Button tButton;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
 
-        tButton = (Button)findViewById(R.id.button);
-        tEdit = (EditText)findViewById(R.id.edittext);
+        tButton = (android.widget.Button)findViewById(R.id.button1);
+        tEdit = (EditText)findViewById(R.id.editText2);
 
         tButton.setOnClickListener(
             new View.OnClickListener() {
                 public void onClick (View view){
-                    Log.v("EditText", mEdit.getText().toString());
+                    android.util.Log.v("EditText", tEdit.getText().toString());
                 }
             }
         );
