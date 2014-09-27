@@ -1,6 +1,10 @@
 package com.yanginstitute.uhack.idontneedit;
 
 import android.app.Activity;
+
+import java.net.MalformedURLException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import android.os.Bundle;
@@ -15,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URL;
 
 /**
  * Created by Lathie and MrAndrewYang on 9/27/14.
@@ -40,9 +45,29 @@ public class SearchScreen extends Activity {
         sEditText.setText(str);
 
         Concater c = new Concater(str);
-        String URL = c.constructSearchURL();
+        String url = c.constructSearchURL();
 
+
+        try {
+            url = URLEncoder.encode(url, "UTF-8");
+        }
+        catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
+
+
+        try {
+            URL gurl = new URL(url);
+            new DownloadFilesTask().execute(gurl);
+        }
+        catch (MalformedURLException e){
+            e.printStackTrace();
+        }
         //sEditText.setText(URL); //Testline
+
+
+
+        /*
         JSONParser jpar = new JSONParser();
         JSONArray Jaar = jpar.getJSONArray(URL);
 
@@ -56,6 +81,7 @@ public class SearchScreen extends Activity {
         catch (JSONException e){
             e.printStackTrace();
         }
+        */
 
 
     }

@@ -2,6 +2,7 @@ package com.yanginstitute.uhack.idontneedit;
 
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +12,8 @@ import android.content.Intent;
 import android.widget.Button;
 import android.util.Log;
 import android.content.Context;
+
+import java.net.URL;
 
 public class MyActivity extends Activity {
 
@@ -31,6 +34,7 @@ public class MyActivity extends Activity {
                 public void onClick (View view){
 
                     // Log.v("EditText", tEdit.getText().toString()); //TEST
+
                     Intent intent = new Intent(MyActivity.this, SearchScreen.class);
                     intent.putExtra("searchString", tEdit.getText().toString());
                     startActivity(intent);
@@ -41,7 +45,6 @@ public class MyActivity extends Activity {
 
 
     }
-
 
 
     @Override

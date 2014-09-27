@@ -6,10 +6,13 @@ package com.yanginstitute.uhack.idontneedit;
 
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.net.URL;
 
 
 public class Concater {
 
+    private static final String PTCL = "https";
+    private static final String HOST = "api.target.com/v2/products/search?searchTerm=";
     private static final String BASE_URL = "https://api.target.com/v2/products/search?searchTerm=";
     private static String searchWord = "";
     private static final String A_KEY = "&key=";
@@ -31,6 +34,14 @@ public class Concater {
         sb.append(KEY);
         return sb.toString();
     }
+
+    /*
+    public URL constructSearchURL(){
+
+
+
+    }
+    */
 
 
 }
