@@ -29,11 +29,12 @@ public class SearchScreen extends Activity {
 
     EditText sEditText;
 
-    private static final String ATTRIBUTE  = "Attribute";
-    private static final String NAME = "name";
-    private static final String DESC = "description";
-    private static final String DPCI = "DPCI";
-
+    /*
+    private static final String TAG_TITLE  = "Title";
+    private static final String TAG_PRICE = "formattedPriceValue";
+    private static final String TAG_DESC = "description";
+    private static final String TAG_IMAGE = "fullImage";
+    */
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +45,7 @@ public class SearchScreen extends Activity {
         String str = intent.getStringExtra("searchString");
         sEditText.setText(str);
 
-        Concater c = new Concater(str);
+        //Concater c = new Concater(str);
         //String url = c.constructSearchURL();
 
         /*
