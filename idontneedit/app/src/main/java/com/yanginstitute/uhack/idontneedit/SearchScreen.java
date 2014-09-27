@@ -30,6 +30,8 @@ public class SearchScreen extends Activity {
         Concater c = new Concater(str);
         String URL = c.constructSearchURL();
 
+        //sEditText.setText(URL); //Testline
+
 
     }
 
