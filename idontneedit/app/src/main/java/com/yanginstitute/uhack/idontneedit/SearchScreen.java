@@ -1,6 +1,5 @@
 package com.yanginstitute.uhack.idontneedit;
 
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,34 +7,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.content.Intent;
-import android.widget.Button;
-import android.util.Log;
-import android.content.Context;
 
-public class MyActivity extends Activity {
+/**
+ * Created by Lathie on 9/27/14.
+ */
 
-    EditText tEdit;
-    Button tButton;
+public class SearchScreen extends Activity {
 
+    EditText sEditText;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my);
+        setContentView(R.layout.searchscreen);
 
-        tButton = (Button)findViewById(R.id.button1);
-        tEdit = (EditText)findViewById(R.id.editText2);
+        sEditText = (EditText) findViewById(R.id.editText2);
+        Intent intent = getIntent();
+        String str = intent.getStringExtra("searchString");
+        sEditText.setText(str);
 
-        tButton.setOnClickListener(
-            new View.OnClickListener() {
-                public void onClick (View view){
-                    //Log.v("EditText", tEdit.getText().toString()); //TEST
-                    Intent intent = new Intent(MyActivity.this, SearchScreen.class);
-                    intent.putExtra("searchString", tEdit.getText().toString());
-                    startActivity(intent);
-
-                }
-            }
-        );
     }
 
 
@@ -57,4 +46,5 @@ public class MyActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
