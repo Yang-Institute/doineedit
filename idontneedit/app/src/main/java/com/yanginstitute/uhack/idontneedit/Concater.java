@@ -13,7 +13,7 @@ public class Concater {
 
     private static final String PTCL = "https";
     private static final String HOST = "api.target.com/v2/products/search?searchTerm=";
-    private static final String BASE_URL = "https://api.target.com/v2/products/search?searchTerm=";
+    private static final String BASE_URL = "https:\\//api.target.com\\/v2\\/products\\/search?searchTerm=";
     private static String searchWord = "";
     private static final String A_KEY = "&key=";
     private static final String KEY = "J5PsS2XGuqCnkdQq0Let6RSfvU7oyPwF";
@@ -25,23 +25,25 @@ public class Concater {
 
     }
 
-    public String constructSearchURL() {
 
+    public String constructSearchURL() {
+        /*
         StringBuffer sb = new StringBuffer();
         sb.append(BASE_URL);
         sb.append(URLEncoder.encode(searchWord));
         sb.append(A_KEY);
         sb.append(KEY);
-        return sb.toString();
-    }
-
-    /*
-    public URL constructSearchURL(){
+        */
 
 
+        return BASE_URL + "patio" + A_KEY + KEY;
 
     }
-    */
+
+
+
+
+
 
 
 }

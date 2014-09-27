@@ -35,14 +35,19 @@ public class JSONParser {
     public JSONArray getJSONArray(String URL) {
         StringBuilder builder = new StringBuilder();
         HttpClient httpclient = new DefaultHttpClient();
+        Log.d("URL", URL.toString());
         HttpGet httpGet = new HttpGet(URL);
         //HttpPost httppost = new HttpPost(URL); //stores the request locally
-        //HttpResponse httpresp = httpclient.execute(httppost);
+
         try {
             HttpResponse response = httpclient.execute(httpGet);
+
+            Log.d("Response", response.toString());
+
             StatusLine statusLine = response.getStatusLine();
             int statusCode = statusLine.getStatusCode();
             if (statusCode == 200) {
+                Log.d("hi","200 status code");
                 HttpEntity entity = response.getEntity();
                 InputStream content = entity.getContent();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(content));

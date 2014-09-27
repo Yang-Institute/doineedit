@@ -13,10 +13,23 @@ import org.json.JSONObject;
 import java.net.URL;
 
 public class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
+    String searchCriteria = null;
+
+    public DownloadFilesTask(String s){
+
+        searchCriteria = s;
+
+    }
+
+
     protected Long doInBackground(URL... urls) {
 
+        //Log.d("test","doInBackground");
+
         JSONParser jpar = new JSONParser();
-        JSONArray Jaar = jpar.getJSONArray(urls.toString());
+        //.d("URL1","https://api.target.com/v2/products/search?searchTerm=patio&key=J5PsS2XGuqCnkdQq0Let6RSfvU7oyPwF");
+
+        JSONArray Jaar = jpar.getJSONArray("https://api.target.com/v2/products/search?searchTerm=" + searchCriteria + "&key=J5PsS2XGuqCnkdQq0Let6RSfvU7oyPwF");
 
         try {
             for (int i = 0; i < Jaar.length(); i++) {
@@ -44,6 +57,7 @@ public class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
         long totalSize = 0;
         return totalSize;
     }
+
 
     /*
     protected void onProgressUpdate(Integer... progress) {

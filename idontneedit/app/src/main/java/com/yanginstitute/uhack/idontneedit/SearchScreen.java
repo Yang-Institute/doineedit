@@ -45,20 +45,22 @@ public class SearchScreen extends Activity {
         sEditText.setText(str);
 
         Concater c = new Concater(str);
-        String url = c.constructSearchURL();
+        //String url = c.constructSearchURL();
 
-
+        /*
         try {
             url = URLEncoder.encode(url, "UTF-8");
         }
         catch (UnsupportedEncodingException e){
             e.printStackTrace();
         }
+        */
 
 
         try {
-            URL gurl = new URL(url);
-            new DownloadFilesTask().execute(gurl);
+            URL gurl = new URL("https://api.target.com/v2/products/search?searchTerm=patio&key=J5PsS2XGuqCnkdQq0Let6RSfvU7oyPwF");
+
+            new DownloadFilesTask(str).execute(gurl);
         }
         catch (MalformedURLException e){
             e.printStackTrace();
