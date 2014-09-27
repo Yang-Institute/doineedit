@@ -9,6 +9,7 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.jayway.jsonpath.JsonPath;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
@@ -16,6 +17,11 @@ import java.net.URLEncoder;
 
 public class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
     String searchCriteria = null;
+
+    public String NAME = null;
+    public String PRICE = null;
+    public String IMG = null;
+
 
     public DownloadFilesTask(String s){
 
@@ -42,6 +48,9 @@ public class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
             //for (int i = 0; i < 1; i++) {
                 JSONObject obj = Jaar.getJSONObject(0);
                 Log.d("JSONArray", "Hello Andrew" + obj.toString());
+
+                NAME = JsonPath.read(obj, "$.CatalogEntryView[1].ItemAttributes[1].Attribute[1].description");
+                Log.d("NAME", NAME);
 
             //}
         }
